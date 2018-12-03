@@ -1,5 +1,3 @@
-console.log('abcd');
-
 //Main-features slide carousel function
 window.slideTransition = function(parent, next, prev) {
   $(parent + ' img').each(function(i) {
@@ -25,9 +23,6 @@ window.slideTransition = function(parent, next, prev) {
 
 
 $(function() {
-
-  console.log('initialized');
-
 
   var video = document.getElementById("video-element");
 
@@ -92,6 +87,8 @@ $(function() {
 
   });
 
+
+
   //Had to change the cycle plugin because of the centered active slider
   // $('.cards__slideshow').cycle({
   //   next: '.cards__slider-nav--next',
@@ -102,14 +99,37 @@ $(function() {
   // $('.cards__slideshow').cycle('pause');
   // $('.cards__slideshow').cycle('cover');
 
-  require("slick-carousel");
+  var slick = require("slick-carousel/slick/slick.js");
 
-  $('.cards__slideshow').slick({
+
+  // $('.screenshots__slideshow').slick({
+  //   autoplay: true,
+  //   autoplaySpeed: 3000,
+  //   arrows: false,
+  //
+  //
+  //   cssEase: 'linear',
+  //   dots: true,
+  //   infinite: true,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   useTransform:false,
+  // });
+
+  $('#js-cards__slider').slick({
+    // autoplay: true,
+    // autoplaySpeed: 3000,
+    arrows: true,
     centerMode: true,
+    centerPadding: '18%',
+    cssEase: 'linear',
+    dots: false,
+    infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerPadding: '18%',
-    arrows: true,
+    speed: 500,
+    useTransform:false,
+
     //if need, just use the following code as selector for arrows
     // nextArrow: $('.cards__slider-nav--next'),
     // prevArrow: $('.cards__slider-nav--prev'),

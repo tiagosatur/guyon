@@ -44,14 +44,31 @@
   font-style: normal;
 }
 
+$desktop: 'screen and (min-width: 1024px)';
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
+}
+
+img,
+textarea {
+  max-width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+button,
+input[type='submit'],
+input[type='text'],
+textarea {
+  outline: none;
 }
 
 ul{
@@ -64,15 +81,8 @@ body {
   background-color: yellowgreen;
 }
 
-.container, .row{
-  // width: 100%;
-  // margin: 0;
-  // padding: 0;
-}
 
-.main-header{
-  height: 760px;
-  overflow: hidden;
+.main-header {
   background-color: white;
   background-image: url('/images/main-header__bg.png');
   background-size: cover;
@@ -80,15 +90,24 @@ body {
   background-position: top center;
   color: white;
 
+  @media #{$desktop} {
+    height: 760px;
+    overflow: hidden;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+  }
+
   &__logo{
     margin: 0;
-    position: absolute;
-    top: 38px;
-    left: 52px;
-    line-height: 1; //tira um pequeno espaço acima e abaixo da logo
-    z-index: 8;
 
-    & a{
+    line-height: 1; //tira um pequeno espaço acima e abaixo da logo
+
+
+    & a {
       font-family: 'IntroRegular', monospace;
       font-size: 36px;
       text-transform: uppercase;
@@ -107,10 +126,19 @@ body {
     margin-top: 35px;
   }
 
-  &__title{
-    font-size: 50px;
-    font-weight: 300;
+  &__title {
+    font: {
+      size: 32px;
+      weight: 700;
+    }
     margin-bottom: 50px;
+
+    @media #{$desktop} {
+      font: {
+        size: 50px;
+        weight: 300;
+      }
+    }
   }
   &__text{
     font-size: 18px;
@@ -118,6 +146,7 @@ body {
     margin-bottom: 74px;
 
   }
+
   &__button{
     width: 230px;
 
@@ -140,18 +169,17 @@ body {
     }
   }
 
-  .col-lg-6:last-of-type{
-    padding-top: 150px;
+  &__presentation {
+
+    @media #{$desktop} {
+      padding-top: 150px;
+
+    }
   }
 
-  .main-nav{
-    top: 40px;
-    right: 44px;
-    position: absolute;
-    //position: absolute;
-    z-index: 9;
+  .main-nav {
 
-    &__icon{
+    &__icon {
       position: absolute;
       top: 40px;
       right: 80px;
@@ -161,9 +189,8 @@ body {
 
       .main-menu__item{
         display: inline;
-        //float: left;
 
-        a{
+        a {
           width: 76px;
           height: 30px;
           font-size: 14px;
@@ -186,11 +213,6 @@ body {
       }
     }
   }
-
-  .col-lg-6:last-of-type{
-    padding-top: 150px;
-  }
-
 }
 
 
@@ -239,7 +261,12 @@ body {
 
 .main-features{
   background-color: white;
-  padding-top: 125px;
+  padding-top: 32px;
+
+  @media #{$desktop} {
+    padding-top: 125px;
+
+  }
 
 
   &__title{
@@ -249,30 +276,67 @@ body {
 
   &__headline{
     @extend %section__headline--grey;
-    width: 660px;
     margin: auto;
-    margin-bottom: 152px;
+    margin-bottom: 32px;
+
+    @media #{$desktop} {
+      margin-bottom: 152px;
+      width: 660px;
+    }
   }
 
-  .quality{
+  .quality {
+    display: flex;
 
-    &__icon{
-      margin-right: 50px;
-      float: left;
+    &__media {
+      padding-top: 8px;
+      width: 20%;
     }
+
+    &__content {
+      padding: {
+        bottom: 32px;
+        left: 16px;
+      }
+
+      width: 80%;
+
+      @media #{$desktop} {
+        padding: {
+          bottom: 64px;
+          left: 50px;
+        }
+      }
+    }
+
+    &__icon {
+      height: auto;
+      // margin-right: 24px;
+      max-width: 58px;
+      width: 100%;
+
+
+      @media #{$desktop} {
+        // margin-right: 50px;
+
+      }
+    }
+
     &__title{
       font-size: 24px;
       font-weight: 300;
       color: #7954b6;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
+
+      @media #{$desktop} {
+        margin-bottom: 40px;
+
+      }
     }
 
-    &__text{
+    &__text {
       font-size: 16px;
       color: #565656;
-      width: 450px;
-      margin-left: 120px;
-      margin-bottom: 64px;
 
     }
 
@@ -283,11 +347,20 @@ body {
   }
 
   &__more{
-    margin-top: 100px;
     font-size: 16px;
     color: #464646;
-    margin-left: 120px;
-    margin-bottom: 145px;
+
+    margin: {
+      bottom: 145px;
+      top: 32px;
+    }
+
+    @media #{$desktop} {
+      margin: {
+        left: 120px;
+        top: 100px;
+      }
+    }
 
     & a{
       color: #dd4387;
@@ -322,21 +395,23 @@ body {
     margin-bottom: 170px;
   }
 
-  .infos{
+  .infos {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .info{
-    margin-right: 20px;
+  .info {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     align-content: space-between;
-    margin-bottom: 145px;
     transition: all 500ms ease;
     padding: 10px;
     border-radius: 15px;
+
+    @media #{$desktop} {
+      margin: 10px 10px 145px;
+    }
 
     &:hover{
       background: rgba(102,51,153, 0.3);
@@ -348,7 +423,10 @@ body {
 
     &__text{
       font-size: 16px;
-      width: 333px;
+
+      @media #{$desktop} {
+        width: 333px;
+      }
     }
   }
 
@@ -493,7 +571,7 @@ body {
 
   }
 
-  .photo{
+  .photo {
     background-color: white;
     opacity: 0.7;
 
@@ -657,12 +735,12 @@ body {
   background-color: white;
   padding-top: 150px;
 
-  &__title{
+  &__title {
     @extend %section__title--darkviolet;
     text-align: center;
   }
 
-  &__headline{
+  &__headline {
     @extend %section__headline--grey;
     text-align: center;
   }
@@ -676,15 +754,14 @@ body {
     position: relative;
   }
 
-  .cards{
+  .cards {
     overflow: hidden;
     height: 427px;
     position: relative;
     margin-bottom: 0 !important;
 
 
-    .card{
-      // width: 742px;
+    .card {
       width: 742px;
       height: 427px;
       background-color: white;
@@ -694,14 +771,12 @@ body {
       padding: 46px 54px;
       filter: grayscale(1) blur(2px);
       transform: scale(0.75);
+      transition: all .2s ease-in-out;
       // top: 50%;
       // left: 200px;
-      // position: absolute;
       margin: 0 auto;
-      float: left;
       outline: 0;
       position: relative;
-
 
       &__header{
 
@@ -725,7 +800,7 @@ body {
         margin-bottom: 0;
       }
 
-      &__username{
+      &__username {
         font-size: 22px;
         font-weight: normal;
         color: #9a9a9a;
@@ -734,7 +809,7 @@ body {
         margin-left: 55px; //porque sem essa margem ele não fica alinhado?
       }
 
-      &__user-follow{
+      &__user-follow {
         font-size: 18px;
         color: #7954b6;
         text-transform: uppercase;
@@ -745,13 +820,16 @@ body {
         border-radius: 5px;
         display: inline-block;
         text-align: center;
-        // float: left;
         position: absolute;
         top: 64px;
         right: 58px;
 
         &:hover{
           text-decoration: none;
+        }
+
+        img {
+          display: inline-block;
         }
       }
 
@@ -765,9 +843,6 @@ body {
       &__text{
         font-size: 20px;
         color: #565656;
-        // width: 634px;
-        width: 100%;
-        height: 100%;
 
       }
 
@@ -778,18 +853,30 @@ body {
         margin-bottom: 54px;
       }
 
-      .twitter-button{
+      &__twitter-buttons {
+        align-items: center;
+        display: flex;
+      }
+
+      .twitter-button {
+
+        &:not(:first-child) {
+          margin-left: 8px;
+        }
+
+        &:not(:last-child) {
+          margin-right: 8px;
+        }
 
         & a:hover{
           text-decoration: none;
         }
         display: inline;
       }
-
-
     }
 
-    .slick{
+
+    .slick {
       // position: absolute;
       // left: 500px;
       // white-space: normal;
@@ -798,22 +885,25 @@ body {
       //   border: 2px solid red;
       //   background-color: red;
       // }
-      &-slide{
-        transition: all 0.25s;
+      &-slide {
+
+        &.slick-active {
+          .card {
+            filter: grayscale(0%) blur(0px);
+            transform: scale(1);
+            transition-timing-function: ease-in-out;
+            width: 742px !important;
+            margin: 0 auto !important;
+          }
+
+
+        }
       }
       &-current{
 
       }
-      &-active{
-        filter: grayscale(0%) blur(0px);
-        transform: scale(1);
-        transition-timing-function: ease-in-out;
-        width: 742px !important;
-        margin: 0 auto !important;
 
-      }
-
-      &-arrow{
+      &-arrow {
         position: absolute;
       }
       &-prev{
@@ -874,21 +964,27 @@ body {
     @extend %head-underline--pink;
   }
 
-  .post{
-    width: 341px;
-    float: left;
+  .post {
     margin-right: 45px;
     border: 2px solid #e6e6e6;
     border-radius: 5px;
+
+    @media #{$desktop} {
+      float: left;
+      width: 341px;
+
+    }
 
     &:last-of-type{
       margin-right: 0;
     }
 
     &__img{
-      width: 337px;
       margin-bottom: 35px;
-      // border: 1px solid green;
+
+      @media #{$desktop} {
+        width: 337px;
+      }
     }
 
     &__title{
@@ -910,7 +1006,10 @@ body {
       font-size: 14px;
       color: #565656;
       margin: auto 25px 30px 25px;
-      width: 290px;
+
+      @media #{$desktop} {
+        width: 290px;
+      }
     }
 
     &__button{
@@ -958,11 +1057,15 @@ body {
     text-align: center;
   }
 
-  &__headline{
+  &__headline {
     @extend %section__headline--white;
     text-align: center;
-    width: 634px;
     margin: 0 auto 56px;
+
+
+    @media #{$desktop} {
+      width: 634px;
+    }
   }
 
   &__underline{
@@ -978,9 +1081,8 @@ body {
     display: inline;
 
 
-    & a{
+    & a {
       display: inline-block;
-      width: 263px;
       height: 64px;
       line-height: 60px;  //como a borda acima e abaixo são de 2px, exitem 4px empurrando a escrita para baixo, é preciso subtrair dos 64
       text-align: center;
@@ -991,6 +1093,10 @@ body {
       border-radius: 40px;
       padding-left: 40px;
       text-decoration: none;
+
+      @media #{$desktop} {
+        width: 263px;
+      }
     }
 
     &--apple a{
@@ -1008,44 +1114,49 @@ body {
   }
 }
 
-.contact{
+.contact {
+  background-color: #ffffff;
   width: 100%;
-  background-image: linear-gradient(to right, #f2f2f6 50%, #ffffff 50%);
   font-family: 'OpenSansRegular';
 
-  .container, .row{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .container{
-    // background-color: pink;
-  }
-
-  .col-lg-6:first-of-type{
-    // background-color: #f2f2f6;
-    // height: 740px;
-    padding-top: 105px;
-    padding-bottom: 87px;
-    width: 50%;
-
+  @media #{$desktop} {
+    background-image: linear-gradient(to right, #f2f2f6 50%, #ffffff 50%);
 
   }
 
-  .col-lg-6:last-of-type{
-    // background-color: white;
-    // height: 740px;
-    padding-top: 180px;
-    padding-left: 8%;
-    padding-right: 20%;
+  .bg-gray-mobile {
+    background-color: #f2f2f6;
+
+    @media #{$desktop} {
+      background-color: transparent;
+
+    }
+  }
+
+  &__content {
+
+    &--first {
+      height: 740px;
+      padding-top: 105px;
+      padding-bottom: 87px;
+    }
+
+    &--second {
+      padding-top: 180px;
+      padding-left: 8%;
+      padding-right: 20%;
+    }
 
   }
 
   &__title{
     @extend %section__title--darkviolet;
-    width: 605px;
-    margin-left: 18%;
+
+    @media #{$desktop} {
+      margin-left: 18%;
+      width: 605px;
+
+    }
   }
 
   &__headline{
@@ -1106,7 +1217,7 @@ body {
   }
 
   &__social-media{
-    margin-left: 35%;    
+    margin-left: 35%;
   }
 
   .social-media{
@@ -1169,7 +1280,11 @@ body {
       width: 100%;
       font-family: 'OpenSansRegular';
 
-      &::placeholder{
+      &:focus {
+        border-bottom: 2px solid #7954b6;
+      }
+
+      &::placeholder {
         color: #565656;
         font-weight: normal;
         font-size: 18px;
@@ -1184,10 +1299,17 @@ body {
       border: 0;
       border-bottom: 2px solid #e3e3e3;
       margin-bottom: 45px;
-      width: 390px;
       height: 200px;
       // font-family: 'OpenSansRegular';
       font-size: 18px;
+
+      @media #{$desktop} {
+        width: 390px;
+      }
+
+      &:focus {
+        border-bottom: 2px solid #7954b6;
+      }
 
       &::placeholder{
         color: #565656;
@@ -1216,10 +1338,15 @@ body {
 }
 
 .slidd {
-  width: 737px;
   height: 500px;
+  overflow: hidden;
   position: relative;
-  margin-left: -200px;
+
+  @media #{$desktop} {
+    margin-left: -200px;
+
+    width: 737px;
+  }
 
   img {
     position: absolute;
@@ -1268,8 +1395,12 @@ body {
     outline: none;
     position: absolute;
     top: 200px;
-    left: -80px;
+    left: 0;
     z-index: 200;
+
+    @media #{$desktop} {
+      left: -80px;
+    }
 
   }
 
@@ -1284,7 +1415,11 @@ body {
     outline: none;
     position: absolute;
     top: 200px;
-    left: 360px;
+    right: 0;
     z-index: 200;
+
+    @media #{$desktop} {
+      left: 360px;
+    }
   }
 }

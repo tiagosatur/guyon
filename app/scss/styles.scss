@@ -392,7 +392,11 @@ body {
   &__underline{
     width: 87px;
     border-bottom: 2px solid white;
-    margin-bottom: 170px;
+    margin-bottom: 50px;
+
+    @media #{$desktop} {
+      margin-bottom: 100px;
+    }
   }
 
   .infos {
@@ -503,14 +507,12 @@ body {
 
   &__headline{
     @extend %section__headline--grey;
-    width: 600px;
     margin-bottom: 140px;
   }
 
-  .presentations{
+  .presentations {
 
     .presentation{
-      width: 405px;
 
       &__title{
         color: #7954b6;
@@ -528,32 +530,46 @@ body {
 
     }
   }
-  .container{
-    overflow: hidden;
-  }
-  .col-lg-6{
-    position: relative;
+
+  &__slider {
+    height: 770px;
+    padding: 130px 0 0 60px;
+    transition: width 2s, height 2s, transform 2s;
 
 
-    //Position img slide inside iPhone wrap
-    .screenshots__slideshow{
-      position: absolute;
-      top: 137px;
-      left: 64px;
-      transition: width 2s, height 2s, transform 2s;
+    .slick-list,
+    .slick-track,
+    .slick-list div {
+      height: 100%;
+    }
 
-      .cycle-slide-active{
-        height: 634px;
+    &-item {
+
+      img {
+        // height: 100%;
       }
     }
 
-    .slider-nav{
+
+    .slick-dots {
+      display: flex;
       z-index: 1500;
       position: absolute;
       right: 20px;
       bottom: -200px;
+      font-size: 0;
 
-      & span {
+      li {
+        &.slick-active {
+          button {
+            background-color: #8e5edd;
+            color: #8e5edd;
+          }
+        }
+      }
+
+      button {
+        border: 0;
         display: inline-block;
         width: 12px;
         height: 12px;
@@ -563,13 +579,12 @@ body {
         margin-right: 15px;
 
       }
-      & .cycle-pager-active{
-        background-color: #8e5edd;
-        color: #8e5edd;
-      }
     }
-
   }
+
+
+
+
 
   .photo {
     background-color: white;
@@ -591,12 +606,17 @@ body {
   }
 
   &__iphone{
-    width: 485px;
-    height: 904px;
+    width: 285px;
+    height: 404px;
     background-image: url('/images/screenshots__photo-iphone.png');
     background-repeat: no-repeat;
     position: absolute;
     z-index: 6;
+
+    @media #{$desktop} {
+      width: 485px;
+      height: 904px;
+    }
 
   }
 

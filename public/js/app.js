@@ -230,7 +230,10 @@ $(function () {
   slideTransition('.slidd', '.slidd-prev', '.slidd-next');
 
   //Buzz section Slider Cycle 2
-  $('.screenshots__slideshow').cycle({});
+  // $('.screenshots__slideshow').cycle({
+  //
+  // });
+
 
   //Had to change the cycle plugin because of the centered active slider
   // $('.cards__slideshow').cycle({
@@ -243,20 +246,6 @@ $(function () {
   // $('.cards__slideshow').cycle('cover');
 
   var slick = require("slick-carousel/slick/slick.js");
-
-  // $('.screenshots__slideshow').slick({
-  //   autoplay: true,
-  //   autoplaySpeed: 3000,
-  //   arrows: false,
-  //
-  //
-  //   cssEase: 'linear',
-  //   dots: true,
-  //   infinite: true,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   useTransform:false,
-  // });
 
   $('#js-cards__slider').slick({
     // autoplay: true,
@@ -309,6 +298,20 @@ $(function () {
         });
       }
     }
+  });
+});
+
+$(document).ready(function () {
+
+  $('#js-screenshots__slider').slick({
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: 'linear',
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
   });
 });
 });

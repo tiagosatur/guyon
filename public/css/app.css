@@ -7119,7 +7119,10 @@ body {
   .about__underline {
     width: 87px;
     border-bottom: 2px solid white;
-    margin-bottom: 170px; }
+    margin-bottom: 50px; }
+    @media screen and (min-width: 1024px) {
+      .about__underline {
+        margin-bottom: 100px; } }
   .about .infos {
     display: flex;
     flex-wrap: wrap; }
@@ -7188,36 +7191,36 @@ body {
   background-color: white;
   padding-top: 130px; }
   .screenshots__headline {
-    width: 600px;
     margin-bottom: 140px; }
-  .screenshots .presentations .presentation {
-    width: 405px; }
-    .screenshots .presentations .presentation__title {
-      color: #7954b6;
-      font-size: 24px;
-      font-weight: 400;
-      margin-bottom: 40px; }
-    .screenshots .presentations .presentation__text {
-      color: #565656;
-      font-size: 16px;
-      margin-bottom: 60px; }
-  .screenshots .container {
-    overflow: hidden; }
-  .screenshots .col-lg-6 {
-    position: relative; }
-    .screenshots .col-lg-6 .screenshots__slideshow {
-      position: absolute;
-      top: 137px;
-      left: 64px;
-      transition: width 2s, height 2s, transform 2s; }
-      .screenshots .col-lg-6 .screenshots__slideshow .cycle-slide-active {
-        height: 634px; }
-    .screenshots .col-lg-6 .slider-nav {
+  .screenshots .presentations .presentation__title {
+    color: #7954b6;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px; }
+  .screenshots .presentations .presentation__text {
+    color: #565656;
+    font-size: 16px;
+    margin-bottom: 60px; }
+  .screenshots__slider {
+    height: 770px;
+    padding: 130px 0 0 60px;
+    transition: width 2s, height 2s, transform 2s; }
+    .screenshots__slider .slick-list,
+    .screenshots__slider .slick-track,
+    .screenshots__slider .slick-list div {
+      height: 100%; }
+    .screenshots__slider .slick-dots {
+      display: flex;
       z-index: 1500;
       position: absolute;
       right: 20px;
-      bottom: -200px; }
-      .screenshots .col-lg-6 .slider-nav span {
+      bottom: -200px;
+      font-size: 0; }
+      .screenshots__slider .slick-dots li.slick-active button {
+        background-color: #8e5edd;
+        color: #8e5edd; }
+      .screenshots__slider .slick-dots button {
+        border: 0;
         display: inline-block;
         width: 12px;
         height: 12px;
@@ -7225,9 +7228,6 @@ body {
         background-color: #e8e8e8;
         color: #e8e8e8;
         margin-right: 15px; }
-      .screenshots .col-lg-6 .slider-nav .cycle-pager-active {
-        background-color: #8e5edd;
-        color: #8e5edd; }
   .screenshots .photo {
     background-color: white;
     opacity: 0.7; }
@@ -7237,12 +7237,16 @@ body {
       .screenshots .photo__img.cycle-slide.cycle-slide-active {
         opacity: 1; }
   .screenshots__iphone {
-    width: 485px;
-    height: 904px;
+    width: 285px;
+    height: 404px;
     background-image: url("/images/screenshots__photo-iphone.png");
     background-repeat: no-repeat;
     position: absolute;
     z-index: 6; }
+    @media screen and (min-width: 1024px) {
+      .screenshots__iphone {
+        width: 485px;
+        height: 904px; } }
 
 .pricing {
   background-color: white; }

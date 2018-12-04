@@ -83,9 +83,9 @@ $(function() {
 
 
   //Buzz section Slider Cycle 2
-  $('.screenshots__slideshow').cycle({
-
-  });
+  // $('.screenshots__slideshow').cycle({
+  //
+  // });
 
 
 
@@ -101,20 +101,6 @@ $(function() {
 
   var slick = require("slick-carousel/slick/slick.js");
 
-
-  // $('.screenshots__slideshow').slick({
-  //   autoplay: true,
-  //   autoplaySpeed: 3000,
-  //   arrows: false,
-  //
-  //
-  //   cssEase: 'linear',
-  //   dots: true,
-  //   infinite: true,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   useTransform:false,
-  // });
 
   $('#js-cards__slider').slick({
     // autoplay: true,
@@ -177,4 +163,19 @@ $(function() {
       }
     });
 
+});
+
+
+$(document).ready(function() {
+
+  $('#js-screenshots__slider').slick({
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: 'linear',
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  })
 });

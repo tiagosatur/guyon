@@ -173,7 +173,7 @@ $(document).ready(function() {
     autoplay: true,
     autoplaySpeed: 3000,
     cssEase: 'linear',
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,

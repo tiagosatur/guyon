@@ -45,6 +45,7 @@
 }
 
 $desktop: 'screen and (min-width: 1024px)';
+$wide: 'screen and (min-width: 1400px)';
 
 * {
   padding: 0;
@@ -80,6 +81,68 @@ body {
   font-weight: 300;
   background-color: yellowgreen;
 }
+
+// MODULES ---------------------------------------------------------------------
+%section__title{
+  font-size: 48px;
+  margin-bottom: 40px;
+  font-weight: 300;
+
+  &--darkviolet{
+    @extend %section__title;
+    color: #7954b6;
+  }
+
+  &--white{
+    @extend %section__title;
+    color: white;
+  }
+
+}
+
+
+%section__headline{
+  font-size: 18px;
+
+  &--grey{
+    @extend %section__headline;
+    color: #565656;
+  }
+
+  &--white{
+    @extend %section__headline;
+    color: #d7d7d7;
+  }
+}
+
+.head-underline {
+  border-bottom: {
+    style: solid;
+    width: 2px;
+  }
+  width: 87px;
+
+  &--white {
+    border-color: #fff;
+    margin-bottom: 30px;
+
+    @media #{$desktop} {
+      margin-bottom: 100px;
+    }
+  }
+
+  &--pink {
+    border-color: #f34791;
+    margin: 30px auto 50px;
+
+    @media #{$desktop} {
+      margin: 50px auto 100px;
+    }
+
+  }
+}
+
+// END MODULES -----------------------------------------------------------------
 
 
 .main-header {
@@ -216,50 +279,8 @@ body {
 }
 
 
-// MODULES ---------------------------------------------------------------------
-%section__title{
-  font-size: 48px;
-  margin-bottom: 40px;
-  font-weight: 300;
 
-  &--darkviolet{
-    @extend %section__title;
-    color: #7954b6;
-  }
-
-  &--white{
-    @extend %section__title;
-    color: white;
-  }
-
-}
-
-
-%section__headline{
-  font-size: 18px;
-
-  &--grey{
-    @extend %section__headline;
-    color: #565656;
-  }
-
-  &--white{
-    @extend %section__headline;
-    color: #d7d7d7;
-  }
-}
-
-%head-underline--pink{
-  margin: 50px auto 120px;
-  border-bottom: 2px solid #f34791;
-  width: 87px;
-}
-
-// END MODULES -----------------------------------------------------------------
-
-
-
-.main-features{
+.main-features {
   background-color: white;
   padding-top: 32px;
 
@@ -298,10 +319,10 @@ body {
         bottom: 32px;
         left: 16px;
       }
-
       width: 80%;
 
-      @media #{$desktop} {
+
+      @media #{$wide} {
         padding: {
           bottom: 64px;
           left: 50px;
@@ -357,8 +378,14 @@ body {
 
     @media #{$desktop} {
       margin: {
+        left: 94px;
+        top: 50px;
+      }
+    }
+
+    @media #{$wide} {
+      margin: {
         left: 120px;
-        top: 100px;
       }
     }
 
@@ -372,7 +399,7 @@ body {
   }
 }
 
-.about{
+.about {
   background-image: url('/images/about__bg.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -394,8 +421,8 @@ body {
     border-bottom: 2px solid white;
     margin-bottom: 50px;
 
-    @media #{$desktop} {
-      margin-bottom: 100px;
+    @media #{$wide} {
+      margin-bottom: 80px;
     }
   }
 
@@ -410,10 +437,14 @@ body {
     flex-direction: column;
     align-content: space-between;
     transition: all 500ms ease;
-    padding: 10px;
+    padding: 16px;
     border-radius: 15px;
 
     @media #{$desktop} {
+      margin: 10px 10px 40px;
+    }
+
+    @media #{$wide} {
       margin: 10px 10px 145px;
     }
 
@@ -543,13 +574,9 @@ body {
       height: 100%;
     }
 
-    &-item {
-
-      img {
-        // height: 100%;
-      }
+    .slick-slide {
+      width: 400px;
     }
-
 
     .slick-dots {
       display: flex;
@@ -624,7 +651,7 @@ body {
 
 
 
-.pricing{
+.pricing {
   background-color: white;
 
   &__title{
@@ -637,27 +664,20 @@ body {
     text-align: center;
   }
 
-  &__underline{
-    @extend %head-underline--pink;
-  }
-
   .boards{
     display: flex;
-    flex-wrap: wrap;
   }
   .board{
     // display: flex;
     // flex-direction: column;
     // flex-grow: 1;
     // justify-content: space-around;
-    float: left;
+
     background-color: white;
     box-shadow: 0 0 50px rgba(#000000, 0.15);
-    margin-right: 55px;
-    // height: 620px;
-    width: 320px; //largura vddeira 332px, mas não cabe na página
-    padding-top: 60px;
-    padding-left: 50px;
+    margin: 0 16px;
+    padding: 60px 25px;
+    width: 33.33%;
 
     &__title{
       color: #7954b6;
@@ -763,10 +783,6 @@ body {
   &__headline {
     @extend %section__headline--grey;
     text-align: center;
-  }
-
-  &__underline{
-    @extend %head-underline--pink;
   }
 
   & .row {
@@ -980,10 +996,6 @@ body {
     text-align: center;
   }
 
-  &__underline{
-    @extend %head-underline--pink;
-  }
-
   .post {
     margin-right: 45px;
     border: 2px solid #e6e6e6;
@@ -1086,10 +1098,6 @@ body {
     @media #{$desktop} {
       width: 634px;
     }
-  }
-
-  &__underline{
-    @extend %head-underline--pink;
   }
 
   &__stores{

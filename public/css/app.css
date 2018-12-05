@@ -6948,6 +6948,39 @@ body {
   font-weight: 300;
   background-color: yellowgreen; }
 
+.main-features__title, .screenshots__title, .pricing__title, .buzz__title, .blog__title, .contact__title, .about__title, .appstore__title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  font-weight: 300; }
+  .main-features__title, .screenshots__title, .pricing__title, .buzz__title, .blog__title, .contact__title {
+    color: #7954b6; }
+  .about__title, .appstore__title {
+    color: white; }
+
+.main-features__headline, .screenshots__headline, .pricing__headline, .buzz__headline, .blog__headline, .contact__headline, .about__headline, .appstore__headline {
+  font-size: 18px; }
+  .main-features__headline, .screenshots__headline, .pricing__headline, .buzz__headline, .blog__headline, .contact__headline {
+    color: #565656; }
+  .about__headline, .appstore__headline {
+    color: #d7d7d7; }
+
+.head-underline {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  width: 87px; }
+  .head-underline--white {
+    border-color: #fff;
+    margin-bottom: 30px; }
+    @media screen and (min-width: 1024px) {
+      .head-underline--white {
+        margin-bottom: 100px; } }
+  .head-underline--pink {
+    border-color: #f34791;
+    margin: 30px auto 50px; }
+    @media screen and (min-width: 1024px) {
+      .head-underline--pink {
+        margin: 50px auto 100px; } }
+
 .main-header {
   background-color: white;
   background-image: url("/images/main-header__bg.png");
@@ -7030,27 +7063,6 @@ body {
         text-decoration: none;
         transition: all 1.5s; }
 
-.main-features__title, .screenshots__title, .pricing__title, .buzz__title, .blog__title, .contact__title, .about__title, .appstore__title {
-  font-size: 48px;
-  margin-bottom: 40px;
-  font-weight: 300; }
-  .main-features__title, .screenshots__title, .pricing__title, .buzz__title, .blog__title, .contact__title {
-    color: #7954b6; }
-  .about__title, .appstore__title {
-    color: white; }
-
-.main-features__headline, .screenshots__headline, .pricing__headline, .buzz__headline, .blog__headline, .contact__headline, .about__headline, .appstore__headline {
-  font-size: 18px; }
-  .main-features__headline, .screenshots__headline, .pricing__headline, .buzz__headline, .blog__headline, .contact__headline {
-    color: #565656; }
-  .about__headline, .appstore__headline {
-    color: #d7d7d7; }
-
-.pricing__underline, .buzz__underline, .blog__underline, .appstore__underline {
-  margin: 50px auto 120px;
-  border-bottom: 2px solid #f34791;
-  width: 87px; }
-
 .main-features {
   background-color: white;
   padding-top: 32px; }
@@ -7075,7 +7087,7 @@ body {
       padding-bottom: 32px;
       padding-left: 16px;
       width: 80%; }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1400px) {
         .main-features .quality__content {
           padding-bottom: 64px;
           padding-left: 50px; } }
@@ -7101,8 +7113,11 @@ body {
     margin-top: 32px; }
     @media screen and (min-width: 1024px) {
       .main-features__more {
-        margin-left: 120px;
-        margin-top: 100px; } }
+        margin-left: 94px;
+        margin-top: 50px; } }
+    @media screen and (min-width: 1400px) {
+      .main-features__more {
+        margin-left: 120px; } }
     .main-features__more a {
       color: #dd4387; }
       .main-features__more a:hover {
@@ -7120,9 +7135,9 @@ body {
     width: 87px;
     border-bottom: 2px solid white;
     margin-bottom: 50px; }
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1400px) {
       .about__underline {
-        margin-bottom: 100px; } }
+        margin-bottom: 80px; } }
   .about .infos {
     display: flex;
     flex-wrap: wrap; }
@@ -7132,9 +7147,12 @@ body {
     flex-direction: column;
     align-content: space-between;
     transition: all 500ms ease;
-    padding: 10px;
+    padding: 16px;
     border-radius: 15px; }
     @media screen and (min-width: 1024px) {
+      .about .info {
+        margin: 10px 10px 40px; } }
+    @media screen and (min-width: 1400px) {
       .about .info {
         margin: 10px 10px 145px; } }
     .about .info:hover {
@@ -7209,6 +7227,8 @@ body {
     .screenshots__slider .slick-track,
     .screenshots__slider .slick-list div {
       height: 100%; }
+    .screenshots__slider .slick-slide {
+      width: 400px; }
     .screenshots__slider .slick-dots {
       display: flex;
       z-index: 1500;
@@ -7255,16 +7275,13 @@ body {
   .pricing__headline {
     text-align: center; }
   .pricing .boards {
-    display: flex;
-    flex-wrap: wrap; }
+    display: flex; }
   .pricing .board {
-    float: left;
     background-color: white;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
-    margin-right: 55px;
-    width: 320px;
-    padding-top: 60px;
-    padding-left: 50px; }
+    margin: 0 16px;
+    padding: 60px 25px;
+    width: 33.33%; }
     .pricing .board__title {
       color: #7954b6;
       font-size: 18px;

@@ -303,13 +303,40 @@ $(function () {
 
 $(document).ready(function () {
 
-  $('#js-screenshots__slider').slick({
+  $('#js-main-screenshots__slider').slick({
+    appendDots: $('.js-main-screenchots-dots'),
     arrows: false,
     autoplay: true,
     autoplaySpeed: 3000,
     cssEase: 'linear',
     dots: true,
     infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  });
+
+  $('#js-boards-carousel').slick({
+    appendDots: $('.js-boards-carousel-dots'),
+    arrows: false,
+    autoplay: false,
+    centerMode: true,
+    dots: true,
+
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [{
+      breakpoint: 768,
+      settings: "unslick"
+    }]
+  });
+
+  $('#js-posts-carousel').slick({
+    appendDots: $('.js-posts-carousel-dots'),
+    arrows: false,
+    autoplay: false,
+    centerMode: false,
+    dots: true,
+    infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1
   });

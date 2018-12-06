@@ -220,15 +220,15 @@
 
 
 
-      <section class="screenshots" id="screenshots">
+      <section class="main-screenshots" id="screenshots">
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-md-6">
 
-              <h2 class="screenshots__title">Screenshots</h2>
-              <p class="screenshots__headline">Tempora similique excepturi obcaecati, maiores nostrum esse illo in soluta at saepe perspiciatis eos quasi laudantium sunt ad quaerat?</p>
+              <h2 class="main-screenshots__title">Screenshots</h2>
+              <p class="main-screenshots__headline">Tempora similique excepturi obcaecati, maiores nostrum esse illo in soluta at saepe perspiciatis eos quasi laudantium sunt ad quaerat?</p>
 
-              <ul class="screenshots__presentations presentations">
+              <ul class="smain-creenshots__presentations presentations">
                 <li class="presentation">
                   <p class="presentation__title">Present your app with AppSperia screenshots</p>
                   <p class="presentation__text">Lorem ipsum dolor sit amet, consectetur adipisicingelitr eiciendis autem aperiam.</p>
@@ -246,25 +246,21 @@
 
             <div class="col-xs-12 col-md-6">
 
-              <div class="screenshots__iphone">
-
-
+              <div class='main-screenshots__box'>
+                <div class="main-screenshots__iphone"></div>
+                <div class="main-screenshots__slider" id='js-main-screenshots__slider'>
+                  <div class="main-screenshots__slider-item">
+                    <img src="/images/screenshots__photo1.png" alt="Img 1" class="photo__img">
+                  </div>
+                  <div class="main-screenshots__slider-item">
+                    <img src="/images/screenshots__photo2.png" alt="Img 1" class="photo__img">
+                  </div>
+                  <div class="main-screenshots__slider-item">
+                    <img src="/images/screenshots__photo3.png" alt="Img 1" class="photo__img">
+                  </div>
+                </div>
+                <div class="js-main-screenchots-dots carousel-dots bottom right"></div>
               </div>
-              <div class="screenshots__slider" id='js-screenshots__slider'>
-                <div class="screenshots__slider-item">
-                  <img src="/images/screenshots__photo1.png" alt="Img 1" class="photo__img">
-                </div>
-                <div class="screenshots__slider-item">
-                  <img src="/images/screenshots__photo2.png" alt="Img 1" class="photo__img">
-                </div>
-                <div class="screenshots__slider-item">
-                  <img src="/images/screenshots__photo3.png" alt="Img 1" class="photo__img">
-                </div>
-              </div>
-
-
-              <div class="slider-nav"></div>
-
             </div>
           </div>
 
@@ -287,7 +283,7 @@
           <div class="row">
             <div class="col-xs-12">
 
-              <ul class="pricing__board boards">
+              <ul class="pricing__board boards" id='js-boards-carousel'>
                 <li class="board">
                   <p class="board__title">Standard Pack</p>
                   <p class="board__price"><span>$ 50</span> /month</p>
@@ -330,6 +326,8 @@
                   <a class="board__button" href="#">Sign in now</a>
                 </li>
               </ul>
+
+              <div class='js-boards-carousel-dots'></div>
 
             </div>
           </div>
@@ -432,7 +430,7 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <ul class="blog__posts posts">
+              <ul class="blog__posts posts" id="js-posts-carousel">
                 <li class="post">
                   <img class="post__img" src="/images/blog__article-1-img.png" alt="">
                   <p class="post__title">Consectetuer adipiscing elit</p>
@@ -455,6 +453,7 @@
                   <a class="post__button" href="#">Read more</a>
                 </li>
               </ul>
+              <div class="js-posts-carousel-dots"></div>
 
             </div>
           </div>

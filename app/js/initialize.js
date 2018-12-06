@@ -168,32 +168,46 @@ $(function() {
 
 $(document).ready(function() {
 
-  $('#js-main-screenshots__slider').slick({
-    appendDots: $('.js-main-screenchots-dots'),
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    cssEase: 'linear',
-    dots: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  })
+  const mainScreenshots__slider = $('#js-main-screenshots__slider')
+  const boardsCarousel = $('#js-boards-carousel')
 
-  $('#js-boards-carousel').slick({
-    appendDots: $('.js-boards-carousel-dots'),
-    arrows: false,
-    autoplay: false,
-    centerMode: true,
-    dots: true,
+  if(mainScreenshots__slider) {
+    mainScreenshots__slider.slick({
+      appendDots: $('.js-main-screenchots-dots'),
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      cssEase: 'linear',
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    })
+  }
 
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    responsive: [{
-      breakpoint: 768,
-      settings: "unslick"
-    }]
-  })
+
+  if(boardsCarousel) {
+    console.log('existe', boardsCarousel)
+    boardsCarousel.slick({
+      appendDots: $('.js-boards-carousel-dots'),
+      arrows: false,
+      autoplay: false,
+      centerMode: true,
+      dots: true,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    })
+  }
+
 
   $('#js-posts-carousel').slick({
     appendDots: $('.js-posts-carousel-dots'),

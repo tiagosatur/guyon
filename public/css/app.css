@@ -7284,14 +7284,18 @@ body {
   .pricing .boards {
     display: flex;
     flex-wrap: wrap; }
+    .pricing .boards .slick-track,
+    .pricing .boards .slick-list {
+      width: 100%; }
+    @media screen and (min-width: 1024px) {
+      .pricing .boards .slick-track {
+        display: flex;
+        justify-content: space-between; } }
   .pricing .board {
     background-color: white;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
     width: 100%;
     padding: 60px 25px; }
-    @media screen and (min-width: 1024px) {
-      .pricing .board {
-        width: 33%; } }
     .pricing .board__title {
       color: #7954b6;
       font-size: 18px;

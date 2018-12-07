@@ -219,4 +219,33 @@ $(document).ready(function() {
     slidesToShow: 1,
     slidesToScroll: 1,
   })
+
+  // Example
+  // function slickResize(slider, settings) {
+  // $(window).on('load resize orientationchange', function() {
+  //     if ($(window).width() > 767) {
+  //       if (slider.hasClass('slick-initialized')) {
+  //         slider.slick('unslick');
+  //       }
+  //       return
+  //     }
+  //     if (!slider.hasClass('slick-initialized')) {
+  //       return slider.slick(settings);
+  //     }
+  //   });
+  // };
+  //
+  // const customBenefits = $('#bf-js-custom-benefits')
+  // const customBenefitsSliderSettings = {
+  //   arrows: false,
+  //   dots: false,
+  //   infinite: false,
+  //   slidesToShow: 2,
+  //   slidesToScroll: 1,
+  //   mobileFirst: true
+  //  }
+  // if(customBenefits) {
+  //   slickResize(customBenefits, customBenefitsSliderSettings)
+  // }
+
 });

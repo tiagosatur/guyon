@@ -44,6 +44,8 @@
   font-style: normal;
 }
 
+$phone: 'screen and (min-width: 425px)';
+$tablet: 'screen and (min-width: 768px)';
 $desktop: 'screen and (min-width: 1024px)';
 
 * {
@@ -122,8 +124,17 @@ body {
     }
   }
 
-  &__iphone{
-    margin-top: 35px;
+  &__iphone {
+    max-height: 400px;
+    @media #{$desktop} {
+      margin-top: 35px;
+
+    }
+
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__title {
@@ -177,7 +188,26 @@ body {
     }
   }
 
+  .btn-nav-toggler {
+    background: transparent;
+    border: 0;
+    height: 32px;
+    width: 32px;
+
+
+    @media #{$desktop} {
+      display: none;
+    }
+
+    span {
+      color: white;
+      display: flex;
+      font-size: 32px;
+    }
+  }
+
   .main-nav {
+    position: relative;
 
     &__icon {
       position: absolute;
@@ -185,7 +215,32 @@ body {
       right: 80px;
     }
 
-    .main-menu{
+    .main-menu {
+      background: rgba(white, .8);
+      border-radius: 3px;
+      display: flex;
+      flex-flow: column;
+      height: 0;
+      margin: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      transition: all .4s;
+      width: 180px;
+      z-index: 99999999;
+
+
+      @media #{$desktop} {
+        background: transparent;
+        position: static;
+        width: auto;
+      }
+
+      &.is-active {
+        height: 300px;
+        opacity: 1;
+      }
 
       .main-menu__item{
         display: inline;
@@ -197,12 +252,17 @@ body {
           line-height: 30px;
           font-weight: bold;
           font-family: 'OpenSansBold';
-          color: white;
+          color: #7954b6;
           margin-left: 5px; //É de 35px, mas com padding right de 15px, é preciso reduzir para 20
           padding: 8px 10px;
           border: 2px solid transparent;
           border-radius: 30px;
           text-transform: uppercase;
+
+          @media #{$desktop} {
+            color: white;
+
+          }
 
           &:hover{
             border: 2px solid white;
@@ -441,7 +501,7 @@ body {
     border-radius: 15px;
 
     @media #{$desktop} {
-      margin: 10px 10px 145px;
+      margin: 10px 10px 50px;
     }
 
     &:hover{
@@ -469,8 +529,6 @@ body {
 
 
   &-element{
-    // object-fit: cover;
-    // float: left;
     display: block;
 
     & source {
@@ -492,33 +550,50 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
+    left: 50%;
     border: none;
     outline: 0;
     position: absolute;
     border: 1px solid #e8e8e8;
     border-radius: 35px;
-    // -webkit-transform: translate(-50%,-50%);
-    // transform: translate(-50%,-50%);
-    top: calc(50% - 35px);
-    left: 20%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+
+    @media #{$desktop} {
+      left: 20%;
+      top: calc(50% - 35px);
+
+      transform: none;
+
+    }
 
   }
 
   &__timer{
+    display: none;
     position: absolute;
     top: 48%;
     left: 27%;
     color: white;
     font-size: 18px;
     text-shadow: 2px 2px #7954b6;
+
+    @media #{$desktop} {
+      display: block;
+    }
   }
 
   &__text{
+    display: none;
     position: absolute;
     top: 48%;
     right: 20%;
     color: white;
     font-size: 18px;
+
+    @media #{$desktop} {
+      display: block;
+    }
   }
 }
 
@@ -567,9 +642,14 @@ body {
   }
 
   &__slider {
-    height: 770px;
-    padding: 130px 0 0 60px;
+    height: 580px;
+    padding: 100px 0 0 45px;
     transition: width 2s, height 2s, transform 2s;
+
+    @media #{$desktop} {
+      height: 770px;
+      padding: 130px 0 0 60px;
+    }
 
 
     .slick-list,
@@ -581,7 +661,13 @@ body {
     &-item {
 
       img {
-        // height: 100%;
+        height: 100%;
+        max-height: 450px;
+        width: auto;
+
+        @media #{$desktop} {
+          max-height: inherit;
+        }
       }
     }
   }
@@ -607,10 +693,14 @@ body {
   }
 
   &__iphone{
-    width: 285px;
-    height: 404px;
-    background-image: url('/images/screenshots__photo-iphone.png');
-    background-repeat: no-repeat;
+    width: 100%;
+    height: 620px;
+
+    background: {
+      image: url('/images/screenshots__photo-iphone.png');
+      repeat: no-repeat;
+      size: cover;
+    }
     position: absolute;
     z-index: 6;
 
@@ -666,6 +756,10 @@ body {
     color: #e8e8e8;
     margin-right: 15px;
 
+    &:hover {
+      background-color: darken(#8e5edd, 5%);
+    }
+
   }
 }
 
@@ -688,40 +782,36 @@ body {
   }
 
   .boards{
-    display: flex;
-    flex-wrap: wrap;
 
-    .slick-track,
-    .slick-list {
-      width: 100%;
-    }
-
-    .slick-track {
-      @media #{$desktop} {
-        display: flex;
-        justify-content: space-between;
-      }
-    }
-  }
-
-  .board{
-    // display: flex;
-    // flex-direction: column;
-    // flex-grow: 1;
-    // justify-content: space-around;
-    // float: left;
-    background-color: white;
-    box-shadow: 0 0 50px rgba(#000000, 0.15);
-    // margin-right: 55px;
-    // height: 620px;
-    width: 100%; //largura vddeira 332px, mas não cabe na página
-    padding: 60px 25px;
 
     @media #{$desktop} {
-      // width: 33% !important;
+      display: flex;
     }
 
-    &__title{
+  }
+
+  .board {
+    padding: 32px 8px;
+
+    @media #{$desktop} {
+      width: 33.33%;
+    }
+
+
+    &__container {
+      background: white;
+      border: 2px solid #e6e6e6;
+      border-radius: 5px;
+      box-shadow: 0 0 50px rgba(#000000, 0.15);
+      padding: 32px;
+
+
+      @media #{$desktop} {
+        padding: 60px 25px;
+      }
+    }
+
+    &__title {
       color: #7954b6;
       font-size: 18px;
       font-weight: normal;
@@ -731,21 +821,32 @@ body {
     &__price{
       color: #7954b6;
       text-transform: uppercase;
-      span{
-        font-weight: 400;
-        font-size: 70px;
+
+      span {
+        font: {
+          weight: 400;
+          size: 45px;
+        }
+
+        @media #{$desktop} {
+          font-size: 60px;
+        }
       }
     }
 
-    &__feature{
+    &__feature {
       font-size: 18px;
       color: #565656;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
       padding-left: 45px;
+
+      @media #{$desktop} {
+        margin-bottom: 35px;
+      }
     }
 
     &__button{
-      width: 230px;
+      width: 100%;
       display: inline-block;
       height: 55px;
       line-height: 55px;
@@ -757,9 +858,13 @@ body {
       text-align: center;
       border-radius: 30px;
       margin-bottom: 50px;
+      transition: background .6s;
 
       &:hover{
         text-decoration: none;
+        background-color: darken(#8e5edd, 10%);
+
+
       }
     }
 
@@ -850,7 +955,7 @@ body {
       font-family: 'RobotoRegular';
       border: 2px solid #e6e6e6;
       border-radius: 10px;
-      padding: 46px 54px;
+      padding: 16px 24px;
       filter: grayscale(1) blur(2px);
       transform: scale(0.75);
       transition: all .2s ease-in-out;
@@ -858,8 +963,13 @@ body {
       outline: 0;
       position: relative;
 
-      &__header{
 
+      @media #{$desktop} {
+        padding: 46px 54px;
+
+      }
+
+      &__header{
         margin-bottom: 32px;
       }
 
@@ -954,6 +1064,9 @@ body {
       }
     }
 
+    .slick-arrow {
+      display: none !important;
+    }
 
     .slick {
       // position: absolute;
@@ -1027,7 +1140,7 @@ body {
 
 
 
-.blog{
+.blog {
   background-color: white;
   font-family: 'RobotoRegular';
   padding-bottom: 146px;
@@ -1047,28 +1160,36 @@ body {
     @extend %head-underline--pink;
   }
 
+  .posts {
+    @media #{$desktop} {
+      display: flex;
+    }
+  }
+
   .post {
-    margin: 0 16px;;
-    border: 2px solid #e6e6e6;
-    border-radius: 5px;
-    // width: 80% !important;
+    padding: 0 16px;
+    width: 70%;
 
     @media #{$desktop} {
-      width: 341px;
+      width: 33.33%;
     }
+
+
 
     &:last-of-type{
       margin-right: 0;
+    }
+
+    &__container {
+      background: white;
+      border: 2px solid #e6e6e6;
+      border-radius: 5px;
     }
 
     &__img{
       height: auto;
       width: 100%;
       margin-bottom: 35px;
-
-      @media #{$desktop} {
-        width: 337px;
-      }
     }
 
     &__title{
@@ -1091,9 +1212,6 @@ body {
       color: #565656;
       margin: auto 25px 30px 25px;
 
-      @media #{$desktop} {
-        width: 290px;
-      }
     }
 
     &__button{
@@ -1156,44 +1274,95 @@ body {
     @extend %head-underline--pink;
   }
 
-  &__stores{
+  .stores {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
     text-align: center;
-    margin: 0
+    margin: 0;
+
+    @media #{$phone} {
+      flex-flow: row;
+    }
   }
 
   .store__item {
-    display: inline;
+    display: inline-block;
+
+    @media #{$phone} {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+
+      @media #{$phone} {
+        margin: {
+          bottom: 0;
+          right: 16px;
+        }
+
+      }
+    }
 
 
     & a {
-      display: inline-block;
+      display: block;
       height: 64px;
       line-height: 60px;  //como a borda acima e abaixo são de 2px, exitem 4px empurrando a escrita para baixo, é preciso subtrair dos 64
       text-align: center;
-      font-size: 27px;
+      font-size: 20px;
       font-weight: normal;
       color: white;
       border: 2px solid white;
       border-radius: 40px;
-      padding-left: 40px;
+      padding-left: 16px;
       text-decoration: none;
+      width: 100%;
 
       @media #{$desktop} {
+        font-size: 27px;
+        padding-left: 40px;
         width: 263px;
       }
     }
 
     &--apple a{
-      background-image: url('/images/appstore__store-apple-icon.png');
-      background-repeat: no-repeat;
-      background-position: 40px 8px;
-      margin-right: 74px;
+      background: {
+        image: url('/images/appstore__store-apple-icon.png');
+        repeat: no-repeat;
+        position: 20px 18px;
+        size: 18px;
+      }
+
+
+      @media #{$desktop} {
+        background: {
+          position: 40px 8px;
+          size: 32px;
+        }
+        margin-right: 74px;
+      }
     }
 
     &--android a{
-      background-image: url('/images/appstore__store-android-icon.png');
-      background-repeat: no-repeat;
-      background-position: 40px 8px;
+      background: {
+        image: url('/images/appstore__store-android-icon.png');
+        repeat: no-repeat;
+        position: 20px 18px;
+        size: 18px;
+      }
+
+      @media #{$desktop} {
+        background: {
+          position: 40px 18px;
+          size: 32px;
+        }
+      }
+
     }
   }
 }
@@ -1220,15 +1389,25 @@ body {
   &__content {
 
     &--first {
-      height: 740px;
       padding-top: 105px;
       padding-bottom: 87px;
     }
 
     &--second {
-      padding-top: 180px;
-      padding-left: 8%;
-      padding-right: 20%;
+      padding: {
+        bottom: 70px;
+        top: 50px;
+        left: 8%;
+        right: 20%;
+      }
+
+      @media #{$desktop} {
+        padding: {
+          top: 180px;
+          left: 8%;
+          right: 20%;
+        }
+      }
     }
 
   }
@@ -1245,17 +1424,24 @@ body {
 
   &__headline{
     @extend %section__headline--grey;
-    // width: 605px;
-    margin-right: 18%;
-    margin-left: 18%;
-    margin-bottom: 66px;
+
+    @media #{$desktop} {
+      margin-right: 18%;
+      margin-left: 18%;
+      margin-bottom: 66px;
+    }
+
 
   }
 
   .address{
     font-weight: normal;
     font-size: 18px;
-    margin-left: 30%;
+    margin-left: 10%;
+
+    @media #{$desktop} {
+      margin-left: 30%;
+    }
 
     &__tel-1{
       background-image: url('/images/contact__address-pin-icon.png');
@@ -1300,14 +1486,25 @@ body {
     }
   }
 
-  &__social-media{
-    margin-left: 35%;
+  &__social-media {
+
+    @media #{$desktop} {
+      margin-left: 35%;
+
+    }
   }
 
+  .social-medias {
+    display: flex;
+    flex-wrap: wrap;
+    @media #{$desktop} {
+    }
+  }
   .social-media{
-    display: inline;
-    float: left;
-    margin-left: 28px;
+    margin: {
+      bottom: 16px;
+      left: 28px;
+    }
 
     &--face a,
     &--twitter a,
@@ -1323,29 +1520,6 @@ body {
       background-repeat: no-repeat;
     }
 
-    &--face a{
-      background-image: url('/images/contact__social-media--face.png');
-    }
-
-    &--twitter a{
-      background-image: url('/images/contact__social-media--twitter.png');
-    }
-
-    &--instagram a{
-      background-image: url('/images/contact__social-media--instagram.png');
-    }
-
-    &--medium a{
-      background-image: url('/images/contact__social-media--medium.png');
-    }
-
-    &--behance a{
-      background-image: url('/images/contact__social-media--behance.png');
-    }
-
-    &--dribbble a{
-      background-image: url('/images/contact__social-media--dribbble.png');
-    }
   }
 
   .form{
@@ -1405,12 +1579,21 @@ body {
     &__button{
       width: 156px;
       height: 38px;
-      border-radius: 16px;
+      border: {
+        radius: 16px;
+        width: 0;
+      }
       background-color: #8e5edd;
       text-transform: uppercase;
       color: white;
       font-size: 18px;
       font-weight: normal;
+      transition: background-color .6s;
+
+      &:hover,
+      &:focus {
+        background-color: darken(#8e5edd, 10%);
+      }
     }
   }
 

@@ -1,3 +1,4 @@
+import { slickResize } from './commons'
 //Main-features slide carousel function
 window.slideTransition = function(parent, next, prev) {
   $(parent + ' img').each(function(i) {
@@ -169,7 +170,6 @@ $(function() {
 $(document).ready(function() {
 
   const mainScreenshots__slider = $('#js-main-screenshots__slider')
-  const boardsCarousel = $('#js-boards-carousel')
 
   if(mainScreenshots__slider) {
     mainScreenshots__slider.slick({
@@ -185,67 +185,60 @@ $(document).ready(function() {
     })
   }
 
+  const boardsCarousel = $('#js-boards-carousel')
+  const boardsCarouselSettings = {
+    appendDots: $('.js-boards-carousel-dots'),
+    arrows: false,
+    autoplay: false,
+    centerMode: false,
+    dots: true,
+    infinite: false,
+    slidesToShow: 1.3,
+    slidesToScroll: 1,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
+  }
 
   if(boardsCarousel) {
-    console.log('existe', boardsCarousel)
-    boardsCarousel.slick({
-      appendDots: $('.js-boards-carousel-dots'),
-      arrows: false,
-      autoplay: false,
-      centerMode: true,
-      dots: true,
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      responsive: [
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    })
+    slickResize(boardsCarousel, boardsCarouselSettings)
   }
 
 
-  $('#js-posts-carousel').slick({
+  const postsCarousel = $('#js-posts-carousel')
+  const postsCarouselSettings = {
     appendDots: $('.js-posts-carousel-dots'),
     arrows: false,
     autoplay: false,
     centerMode: false,
     dots: true,
     infinite: false,
-    slidesToShow: 1,
+    slidesToShow: 1.3,
     slidesToScroll: 1,
+    mobileFirst: true,
+    responsive: [
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
+
+  }
+
+  if(postsCarousel) {
+    slickResize(postsCarousel, postsCarouselSettings)
+  }
+
+
+  $('.btn-nav-toggler').click(() => {
+    $('.main-menu').toggleClass('is-active')
   })
-
-  // Example
-  // function slickResize(slider, settings) {
-  // $(window).on('load resize orientationchange', function() {
-  //     if ($(window).width() > 767) {
-  //       if (slider.hasClass('slick-initialized')) {
-  //         slider.slick('unslick');
-  //       }
-  //       return
-  //     }
-  //     if (!slider.hasClass('slick-initialized')) {
-  //       return slider.slick(settings);
-  //     }
-  //   });
-  // };
-  //
-  // const customBenefits = $('#bf-js-custom-benefits')
-  // const customBenefitsSliderSettings = {
-  //   arrows: false,
-  //   dots: false,
-  //   infinite: false,
-  //   slidesToShow: 2,
-  //   slidesToScroll: 1,
-  //   mobileFirst: true
-  //  }
-  // if(customBenefits) {
-  //   slickResize(customBenefits, customBenefitsSliderSettings)
-  // }
-
 });

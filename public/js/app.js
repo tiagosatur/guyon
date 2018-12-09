@@ -148,8 +148,33 @@ var __makeRelativeRequire = function(require, mappings, pref) {
     return require(name);
   }
 };
-require.register("js/initialize.js", function(exports, require, module) {
+require.register("js/commons.js", function(exports, require, module) {
 'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function slickResize(slider, settings) {
+  $(window).on('load resize orientationchange', function () {
+    if ($(window).width() > 1023) {
+      if (slider.hasClass('slick-initialized')) {
+        slider.slick('unslick');
+      }
+      return;
+    }
+    if (!slider.hasClass('slick-initialized')) {
+      return slider.slick(settings);
+    }
+  });
+};
+
+exports.slickResize = slickResize;
+});
+
+;require.register("js/initialize.js", function(exports, require, module) {
+'use strict';
+
+var _commons = require('./commons');
 
 //Main-features slide carousel function
 window.slideTransition = function (parent, next, prev) {
@@ -304,7 +329,6 @@ $(function () {
 $(document).ready(function () {
 
   var mainScreenshots__slider = $('#js-main-screenshots__slider');
-  var boardsCarousel = $('#js-boards-carousel');
 
   if (mainScreenshots__slider) {
     mainScreenshots__slider.slick({
@@ -320,35 +344,56 @@ $(document).ready(function () {
     });
   }
 
+  var boardsCarousel = $('#js-boards-carousel');
+  var boardsCarouselSettings = {
+    appendDots: $('.js-boards-carousel-dots'),
+    arrows: false,
+    autoplay: false,
+    centerMode: false,
+    dots: true,
+    infinite: false,
+    slidesToShow: 1.3,
+    slidesToScroll: 1,
+    mobileFirst: true,
+    responsive: [{
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2
+      }
+    }]
+  };
+
   if (boardsCarousel) {
-    console.log('existe', boardsCarousel);
-    boardsCarousel.slick({
-      appendDots: $('.js-boards-carousel-dots'),
-      arrows: false,
-      autoplay: false,
-      centerMode: true,
-      dots: true,
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      responsive: [{
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }]
-    });
+    (0, _commons.slickResize)(boardsCarousel, boardsCarouselSettings);
   }
 
-  $('#js-posts-carousel').slick({
+  var postsCarousel = $('#js-posts-carousel');
+  var postsCarouselSettings = {
     appendDots: $('.js-posts-carousel-dots'),
     arrows: false,
     autoplay: false,
     centerMode: false,
     dots: true,
     infinite: false,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToShow: 1.3,
+    slidesToScroll: 1,
+    mobileFirst: true,
+    responsive: [{
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 2
+      }
+    }]
+
+  };
+
+  if (postsCarousel) {
+    (0, _commons.slickResize)(postsCarousel, postsCarouselSettings);
+  }
+
+  $('.btn-nav-toggler').click(function () {
+
+    $('.main-menu').toggleClass('is-active');
   });
 });
 });

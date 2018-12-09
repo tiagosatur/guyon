@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="fonts/Intro/style.css" />
         <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script> -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -38,8 +39,13 @@
             <div class="col-xs-12">
               <div class="main-header__top">
                 <p class="main-header__logo"><a href="#">Guyon</a></p>
-                <!-- <p class="main-nav__icon"><a href="#!"><i class="fa fa-bars fa-4x"></i></a></p> -->
+
                 <nav class="main-nav">
+                  <button class="btn-nav-toggler" type="button">
+                    <span>
+                      <i class="fas fa-bars"></i>
+                    </span>
+                  </button>
                   <ul class="main-menu">
                     <li class="main-menu__item"><a href="#home">Home</a></li>
                     <li class="main-menu__item"><a href="#main-features">Features</a></li>
@@ -58,7 +64,10 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-md-6">
-              <img class="main-header__iphone" src="/images/main-header__iphone.png" alt="App">
+              <div class="main-header__iphone-container">
+                <img class="main-header__iphone" src="/images/main-header__iphone.png" alt="App">
+              </div>
+
             </div>
 
             <div class="col-xs-12 col-md-6">
@@ -285,45 +294,51 @@
 
               <ul class="pricing__board boards" id='js-boards-carousel'>
                 <li class="board">
-                  <p class="board__title">Standard Pack</p>
-                  <p class="board__price"><span>$ 50</span> /month</p>
-                  <ul class="board__features">
-                    <li class="board__feature">1 Licence</li>
-                    <li class="board__feature">Content Editor</li>
-                    <li class="board__feature">Fully Responsive</li>
-                    <li class="board__feature">Custom Fontsets</li>
-                    <li class="board__feature">Retina Ready</li>
-                    <li class="board__feature">Fullscreen Cover</li>
-                  </ul>
-                  <a class="board__button" href="#">Sign in now</a>
+                  <div class="board__container">
+                    <p class="board__title">Standard Pack</p>
+                    <p class="board__price"><span>$ 50</span> /month</p>
+                    <ul class="board__features">
+                      <li class="board__feature">1 Licence</li>
+                      <li class="board__feature">Content Editor</li>
+                      <li class="board__feature">Fully Responsive</li>
+                      <li class="board__feature">Custom Fontsets</li>
+                      <li class="board__feature">Retina Ready</li>
+                      <li class="board__feature">Fullscreen Cover</li>
+                    </ul>
+                    <a class="board__button" href="#">Sign in now</a>
+                  </div>
                 </li>
 
                 <li class="board">
-                  <p class="board__title">Best Pack</p>
-                  <p class="board__price"><span>$ 100</span> /month</p>
-                  <ul class="board__features">
-                    <li class="board__feature">1 Licence</li>
-                    <li class="board__feature">Content Editor</li>
-                    <li class="board__feature">Fully Responsive</li>
-                    <li class="board__feature">Custom Fontsets</li>
-                    <li class="board__feature">Retina Ready</li>
-                    <li class="board__feature">Fullscreen Cover</li>
-                  </ul>
-                  <a class="board__button" href="#">Sign in now</a>
+                  <div class="board__container">
+                    <p class="board__title">Best Pack</p>
+                    <p class="board__price"><span>$ 100</span> /month</p>
+                    <ul class="board__features">
+                      <li class="board__feature">1 Licence</li>
+                      <li class="board__feature">Content Editor</li>
+                      <li class="board__feature">Fully Responsive</li>
+                      <li class="board__feature">Custom Fontsets</li>
+                      <li class="board__feature">Retina Ready</li>
+                      <li class="board__feature">Fullscreen Cover</li>
+                    </ul>
+                    <a class="board__button" href="#">Sign in now</a>
+                  </div>
                 </li>
 
                 <li class="board">
-                  <p class="board__title">Golden Pack</p>
-                  <p class="board__price"><span>$ 250</span> /month</p>
-                  <ul class="board__features">
-                    <li class="board__feature">1 Licence</li>
-                    <li class="board__feature">Content Editor</li>
-                    <li class="board__feature">Fully Responsive</li>
-                    <li class="board__feature">Custom Fontsets</li>
-                    <li class="board__feature">Retina Ready</li>
-                    <li class="board__feature">Fullscreen Cover</li>
-                  </ul>
-                  <a class="board__button" href="#">Sign in now</a>
+                  <div class="board__container">
+                    <p class="board__title">Golden Pack</p>
+                    <p class="board__price"><span>$ 250</span> /month</p>
+                    <ul class="board__features">
+                      <li class="board__feature">1 Licence</li>
+                      <li class="board__feature">Content Editor</li>
+                      <li class="board__feature">Fully Responsive</li>
+                      <li class="board__feature">Custom Fontsets</li>
+                      <li class="board__feature">Retina Ready</li>
+                      <li class="board__feature">Fullscreen Cover</li>
+                    </ul>
+                    <a class="board__button" href="#">Sign in now</a>
+                  </div>
                 </li>
               </ul>
 
@@ -432,25 +447,31 @@
             <div class="col-xs-12">
               <ul class="blog__posts posts" id="js-posts-carousel">
                 <li class="post">
-                  <img class="post__img" src="/images/blog__article-1-img.png" alt="">
-                  <p class="post__title">Consectetuer adipiscing elit</p>
-                  <p class="post__date">Posted On 25th September 2014</p>
-                  <p class="post__text">Your project looks great on any device. Content can be easily read and a user understands freely what you wanted to say him or her. Your project looks great on any device.</p>
-                  <a class="post__button" href="#">Read more</a>
+                  <div class="post__container">
+                    <img class="post__img" src="/images/blog__article-1-img.png" alt="">
+                    <p class="post__title">Consectetuer adipiscing elit</p>
+                    <p class="post__date">Posted On 25th September 2014</p>
+                    <p class="post__text">Your project looks great on any device. Content can be easily read and a user understands freely what you wanted to say him or her. Your project looks great on any device.</p>
+                    <a class="post__button" href="#">Read more</a>
+                  </div>
                 </li>
                 <li class="post">
-                  <img class="post__img" src="/images/blog__article-2-img.png" alt="">
-                  <p class="post__title">Consectetuer adipiscing elit</p>
-                  <p class="post__date">Posted On 25th September 2014</p>
-                  <p class="post__text">Your project looks great on any device. Content can be easily read and a user understands freely what you wanted to say him or her. Your project looks great on any device.</p>
-                  <a class="post__button" href="#">Read more</a>
+                  <div class="post__container">
+                    <img class="post__img" src="/images/blog__article-2-img.png" alt="">
+                    <p class="post__title">Consectetuer adipiscing elit</p>
+                    <p class="post__date">Posted On 25th September 2014</p>
+                    <p class="post__text">Your project looks great on any device. Content can be easily read and a user understands freely what you wanted to say him or her. Your project looks great on any device.</p>
+                    <a class="post__button" href="#">Read more</a>
+                  </div>
                 </li>
                 <li class="post">
-                  <img class="post__img" src="/images/blog__article-3-img.png" alt="">
-                  <p class="post__title">Consectetuer adipiscing elit</p>
-                  <p class="post__date">Posted On 25th September 2014</p>
-                  <p class="post__text">Your project looks great on any device. Content can be easily read and a user understands freely what you wanted to say him or her. Your project looks great on any device.</p>
-                  <a class="post__button" href="#">Read more</a>
+                  <div class="post__container">
+                    <img class="post__img" src="/images/blog__article-3-img.png" alt="">
+                    <p class="post__title">Consectetuer adipiscing elit</p>
+                    <p class="post__date">Posted On 25th September 2014</p>
+                    <p class="post__text">Your project looks great on any device. Content can be easily read and a user understands freely what you wanted to say him or her. Your project looks great on any device.</p>
+                    <a class="post__button" href="#">Read more</a>
+                  </div>
                 </li>
               </ul>
               <div class="js-posts-carousel-dots"></div>
@@ -504,12 +525,12 @@
                   <p class="address__street">No 40 Baria Sreet 133/2 New York City, NY, United States</p>
                 </address>
                 <ul class="contact__social-media social-medias">
-                  <li class="social-media social-media--face"><a href="#"></a></li>
-                  <li class="social-media social-media--twitter"><a href="#"></a></li>
-                  <li class="social-media social-media--instagram"><a href="#"></a></li>
-                  <li class="social-media social-media--medium"><a href="#"></a></li>
-                  <li class="social-media social-media--behance"><a href="#"></a></li>
-                  <li class="social-media social-media--dribbble"><a href="#"></a></li>
+                  <li class="social-media social-media--face"><a href="#"><img src='/images/contact__social-media--face.png' /></a></li>
+                  <li class="social-media social-media--twitter"><a href="#"><img src='/images/contact__social-media--twitter.png' /></a></li>
+                  <li class="social-media social-media--instagram"><a href="#"><img src='/images/contact__social-media--instagram.png' /></a></li>
+                  <li class="social-media social-media--medium"><a href="#"><img src='/images/contact__social-media--medium.png' /></a></li>
+                  <li class="social-media social-media--behance"><a href="#"><img src='/images/contact__social-media--behance.png' /></a></li>
+                  <li class="social-media social-media--dribbble"><a href="#"><img src='/images/contact__social-media--dribbble.png' /></a></li>
                 </ul>
               </div>
 

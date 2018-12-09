@@ -6974,7 +6974,13 @@ body {
       display: inline-block;
       text-decoration: none; }
   .main-header__iphone {
-    margin-top: 35px; }
+    max-height: 400px; }
+    @media screen and (min-width: 1024px) {
+      .main-header__iphone {
+        margin-top: 35px; } }
+    .main-header__iphone-container {
+      display: flex;
+      justify-content: center; }
   .main-header__title {
     font-size: 32px;
     font-weight: 700;
@@ -7006,29 +7012,68 @@ body {
   @media screen and (min-width: 1024px) {
     .main-header__presentation {
       padding-top: 150px; } }
-  .main-header .main-nav__icon {
-    position: absolute;
-    top: 40px;
-    right: 80px; }
-  .main-header .main-nav .main-menu .main-menu__item {
-    display: inline; }
-    .main-header .main-nav .main-menu .main-menu__item a {
-      width: 76px;
-      height: 30px;
-      font-size: 14px;
-      line-height: 30px;
-      font-weight: bold;
-      font-family: 'OpenSansBold';
+  .main-header .btn-nav-toggler {
+    background: transparent;
+    border: 0;
+    height: 32px;
+    width: 32px; }
+    @media screen and (min-width: 1024px) {
+      .main-header .btn-nav-toggler {
+        display: none; } }
+    .main-header .btn-nav-toggler span {
       color: white;
-      margin-left: 5px;
-      padding: 8px 10px;
-      border: 2px solid transparent;
-      border-radius: 30px;
-      text-transform: uppercase; }
-      .main-header .main-nav .main-menu .main-menu__item a:hover {
-        border: 2px solid white;
-        text-decoration: none;
-        transition: all 1.5s; }
+      display: flex;
+      font-size: 32px; }
+  .main-header .main-nav {
+    position: relative; }
+    .main-header .main-nav__icon {
+      position: absolute;
+      top: 40px;
+      right: 80px; }
+    .main-header .main-nav .main-menu {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 3px;
+      display: flex;
+      flex-flow: column;
+      height: 0;
+      margin: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      transition: all .4s;
+      width: 180px;
+      z-index: 99999999; }
+      @media screen and (min-width: 1024px) {
+        .main-header .main-nav .main-menu {
+          background: transparent;
+          position: static;
+          width: auto; } }
+      .main-header .main-nav .main-menu.is-active {
+        height: 300px;
+        opacity: 1; }
+      .main-header .main-nav .main-menu .main-menu__item {
+        display: inline; }
+        .main-header .main-nav .main-menu .main-menu__item a {
+          width: 76px;
+          height: 30px;
+          font-size: 14px;
+          line-height: 30px;
+          font-weight: bold;
+          font-family: 'OpenSansBold';
+          color: #7954b6;
+          margin-left: 5px;
+          padding: 8px 10px;
+          border: 2px solid transparent;
+          border-radius: 30px;
+          text-transform: uppercase; }
+          @media screen and (min-width: 1024px) {
+            .main-header .main-nav .main-menu .main-menu__item a {
+              color: white; } }
+          .main-header .main-nav .main-menu .main-menu__item a:hover {
+            border: 2px solid white;
+            text-decoration: none;
+            transition: all 1.5s; }
 
 .main-features__title, .main-screenshots__title, .pricing__title, .buzz__title, .blog__title, .contact__title, .about__title, .appstore__title {
   font-size: 48px;
@@ -7149,7 +7194,7 @@ body {
     border-radius: 15px; }
     @media screen and (min-width: 1024px) {
       .about .info {
-        margin: 10px 10px 145px; } }
+        margin: 10px 10px 50px; } }
     .about .info:hover {
       background: rgba(102, 51, 153, 0.3); }
     .about .info__title {
@@ -7179,26 +7224,40 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
+    left: 50%;
     border: none;
     outline: 0;
     position: absolute;
     border: 1px solid #e8e8e8;
     border-radius: 35px;
-    top: calc(50% - 35px);
-    left: 20%; }
+    transform: translate(-50%, -50%);
+    top: 50%; }
+    @media screen and (min-width: 1024px) {
+      .video__playpause {
+        left: 20%;
+        top: calc(50% - 35px);
+        transform: none; } }
   .video__timer {
+    display: none;
     position: absolute;
     top: 48%;
     left: 27%;
     color: white;
     font-size: 18px;
     text-shadow: 2px 2px #7954b6; }
+    @media screen and (min-width: 1024px) {
+      .video__timer {
+        display: block; } }
   .video__text {
+    display: none;
     position: absolute;
     top: 48%;
     right: 20%;
     color: white;
     font-size: 18px; }
+    @media screen and (min-width: 1024px) {
+      .video__text {
+        display: block; } }
 
 .main-screenshots {
   background-color: white;
@@ -7220,13 +7279,24 @@ body {
   .main-screenshots__box {
     position: relative; }
   .main-screenshots__slider {
-    height: 770px;
-    padding: 130px 0 0 60px;
+    height: 580px;
+    padding: 100px 0 0 45px;
     transition: width 2s, height 2s, transform 2s; }
+    @media screen and (min-width: 1024px) {
+      .main-screenshots__slider {
+        height: 770px;
+        padding: 130px 0 0 60px; } }
     .main-screenshots__slider .slick-list,
     .main-screenshots__slider .slick-track,
     .main-screenshots__slider .slick-list div {
       height: 100%; }
+    .main-screenshots__slider-item img {
+      height: 100%;
+      max-height: 450px;
+      width: auto; }
+      @media screen and (min-width: 1024px) {
+        .main-screenshots__slider-item img {
+          max-height: inherit; } }
   .main-screenshots .photo {
     background-color: white;
     opacity: 0.7; }
@@ -7236,10 +7306,11 @@ body {
       .main-screenshots .photo__img.cycle-slide.cycle-slide-active {
         opacity: 1; }
   .main-screenshots__iphone {
-    width: 285px;
-    height: 404px;
+    width: 100%;
+    height: 620px;
     background-image: url("/images/screenshots__photo-iphone.png");
     background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     z-index: 6; }
     @media screen and (min-width: 1024px) {
@@ -7274,6 +7345,8 @@ body {
     background-color: #e8e8e8;
     color: #e8e8e8;
     margin-right: 15px; }
+    .carousel-dots button:hover {
+      background-color: #7f49d9; }
 
 .pricing {
   background-color: white; }
@@ -7281,21 +7354,23 @@ body {
     text-align: center; }
   .pricing__headline {
     text-align: center; }
-  .pricing .boards {
-    display: flex;
-    flex-wrap: wrap; }
-    .pricing .boards .slick-track,
-    .pricing .boards .slick-list {
-      width: 100%; }
-    @media screen and (min-width: 1024px) {
-      .pricing .boards .slick-track {
-        display: flex;
-        justify-content: space-between; } }
+  @media screen and (min-width: 1024px) {
+    .pricing .boards {
+      display: flex; } }
   .pricing .board {
-    background-color: white;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    padding: 60px 25px; }
+    padding: 32px 8px; }
+    @media screen and (min-width: 1024px) {
+      .pricing .board {
+        width: 33.33%; } }
+    .pricing .board__container {
+      background: white;
+      border: 2px solid #e6e6e6;
+      border-radius: 5px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+      padding: 32px; }
+      @media screen and (min-width: 1024px) {
+        .pricing .board__container {
+          padding: 60px 25px; } }
     .pricing .board__title {
       color: #7954b6;
       font-size: 18px;
@@ -7305,14 +7380,20 @@ body {
       text-transform: uppercase; }
       .pricing .board__price span {
         font-weight: 400;
-        font-size: 70px; }
+        font-size: 45px; }
+        @media screen and (min-width: 1024px) {
+          .pricing .board__price span {
+            font-size: 60px; } }
     .pricing .board__feature {
       font-size: 18px;
       color: #565656;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
       padding-left: 45px; }
+      @media screen and (min-width: 1024px) {
+        .pricing .board__feature {
+          margin-bottom: 35px; } }
     .pricing .board__button {
-      width: 230px;
+      width: 100%;
       display: inline-block;
       height: 55px;
       line-height: 55px;
@@ -7323,9 +7404,11 @@ body {
       font-weight: bold;
       text-align: center;
       border-radius: 30px;
-      margin-bottom: 50px; }
+      margin-bottom: 50px;
+      transition: background .6s; }
       .pricing .board__button:hover {
-        text-decoration: none; }
+        text-decoration: none;
+        background-color: #7034d4; }
   .pricing .board:nth-child(1) .board__feature:nth-child(1),
   .pricing .board:nth-child(1) .board__feature:nth-child(2) {
     background-image: url("/images/pricing__board-icon-violet.png");
@@ -7377,13 +7460,16 @@ body {
       font-family: 'RobotoRegular';
       border: 2px solid #e6e6e6;
       border-radius: 10px;
-      padding: 46px 54px;
+      padding: 16px 24px;
       filter: grayscale(1) blur(2px);
       transform: scale(0.75);
       transition: all .2s ease-in-out;
       margin: 0 auto;
       outline: 0;
       position: relative; }
+      @media screen and (min-width: 1024px) {
+        .buzz .cards .card {
+          padding: 46px 54px; } }
       .buzz .cards .card__header {
         margin-bottom: 32px; }
       .buzz .cards .card__img {
@@ -7446,6 +7532,8 @@ body {
           margin-right: 8px; }
         .buzz .cards .card .twitter-button a:hover {
           text-decoration: none; }
+    .buzz .cards .slick-arrow {
+      display: none !important; }
     .buzz .cards .slick-slide.slick-active .card {
       filter: grayscale(0%) blur(0px);
       transform: scale(1);
@@ -7491,22 +7579,25 @@ body {
     text-align: center; }
   .blog__headline {
     text-align: center; }
+  @media screen and (min-width: 1024px) {
+    .blog .posts {
+      display: flex; } }
   .blog .post {
-    margin: 0 16px;
-    border: 2px solid #e6e6e6;
-    border-radius: 5px; }
+    padding: 0 16px;
+    width: 70%; }
     @media screen and (min-width: 1024px) {
       .blog .post {
-        width: 341px; } }
+        width: 33.33%; } }
     .blog .post:last-of-type {
       margin-right: 0; }
+    .blog .post__container {
+      background: white;
+      border: 2px solid #e6e6e6;
+      border-radius: 5px; }
     .blog .post__img {
       height: auto;
       width: 100%;
       margin-bottom: 35px; }
-      @media screen and (min-width: 1024px) {
-        .blog .post__img {
-          width: 337px; } }
     .blog .post__title {
       font-size: 22px;
       font-weight: normal;
@@ -7521,9 +7612,6 @@ body {
       font-size: 14px;
       color: #565656;
       margin: auto 25px 30px 25px; }
-      @media screen and (min-width: 1024px) {
-        .blog .post__text {
-          width: 290px; } }
     .blog .post__button {
       display: block;
       font-size: 14px;
@@ -7558,35 +7646,65 @@ body {
     @media screen and (min-width: 1024px) {
       .appstore__headline {
         width: 634px; } }
-  .appstore__stores {
+  .appstore .stores {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
     text-align: center;
     margin: 0; }
+    @media screen and (min-width: 425px) {
+      .appstore .stores {
+        flex-flow: row; } }
   .appstore .store__item {
-    display: inline; }
+    display: inline-block; }
+    @media screen and (min-width: 425px) {
+      .appstore .store__item {
+        display: flex;
+        justify-content: center;
+        width: 50%; } }
+    .appstore .store__item:not(:last-child) {
+      margin-bottom: 16px; }
+      @media screen and (min-width: 425px) {
+        .appstore .store__item:not(:last-child) {
+          margin-bottom: 0;
+          margin-right: 16px; } }
     .appstore .store__item a {
-      display: inline-block;
+      display: block;
       height: 64px;
       line-height: 60px;
       text-align: center;
-      font-size: 27px;
+      font-size: 20px;
       font-weight: normal;
       color: white;
       border: 2px solid white;
       border-radius: 40px;
-      padding-left: 40px;
-      text-decoration: none; }
+      padding-left: 16px;
+      text-decoration: none;
+      width: 100%; }
       @media screen and (min-width: 1024px) {
         .appstore .store__item a {
+          font-size: 27px;
+          padding-left: 40px;
           width: 263px; } }
     .appstore .store__item--apple a {
       background-image: url("/images/appstore__store-apple-icon.png");
       background-repeat: no-repeat;
-      background-position: 40px 8px;
-      margin-right: 74px; }
+      background-position: 20px 18px;
+      background-size: 18px; }
+      @media screen and (min-width: 1024px) {
+        .appstore .store__item--apple a {
+          background-position: 40px 8px;
+          background-size: 32px;
+          margin-right: 74px; } }
     .appstore .store__item--android a {
       background-image: url("/images/appstore__store-android-icon.png");
       background-repeat: no-repeat;
-      background-position: 40px 8px; }
+      background-position: 20px 18px;
+      background-size: 18px; }
+      @media screen and (min-width: 1024px) {
+        .appstore .store__item--android a {
+          background-position: 40px 18px;
+          background-size: 32px; } }
 
 .contact {
   background-color: #ffffff;
@@ -7601,25 +7719,34 @@ body {
       .contact .bg-gray-mobile {
         background-color: transparent; } }
   .contact__content--first {
-    height: 740px;
     padding-top: 105px;
     padding-bottom: 87px; }
   .contact__content--second {
-    padding-top: 180px;
+    padding-bottom: 70px;
+    padding-top: 50px;
     padding-left: 8%;
     padding-right: 20%; }
+    @media screen and (min-width: 1024px) {
+      .contact__content--second {
+        padding-top: 180px;
+        padding-left: 8%;
+        padding-right: 20%; } }
   @media screen and (min-width: 1024px) {
     .contact__title {
       margin-left: 18%;
       width: 605px; } }
-  .contact__headline {
-    margin-right: 18%;
-    margin-left: 18%;
-    margin-bottom: 66px; }
+  @media screen and (min-width: 1024px) {
+    .contact__headline {
+      margin-right: 18%;
+      margin-left: 18%;
+      margin-bottom: 66px; } }
   .contact .address {
     font-weight: normal;
     font-size: 18px;
-    margin-left: 30%; }
+    margin-left: 10%; }
+    @media screen and (min-width: 1024px) {
+      .contact .address {
+        margin-left: 30%; } }
     .contact .address__tel-1 {
       background-image: url("/images/contact__address-pin-icon.png");
       background-repeat: no-repeat;
@@ -7652,11 +7779,14 @@ body {
       padding-left: 60px;
       margin-bottom: 115px;
       line-height: 34px; }
-  .contact__social-media {
-    margin-left: 35%; }
+  @media screen and (min-width: 1024px) {
+    .contact__social-media {
+      margin-left: 35%; } }
+  .contact .social-medias {
+    display: flex;
+    flex-wrap: wrap; }
   .contact .social-media {
-    display: inline;
-    float: left;
+    margin-bottom: 16px;
     margin-left: 28px; }
     .contact .social-media--face a,
     .contact .social-media--twitter a,
@@ -7669,18 +7799,6 @@ body {
       line-height: 31px;
       display: inline-block;
       background-repeat: no-repeat; }
-    .contact .social-media--face a {
-      background-image: url("/images/contact__social-media--face.png"); }
-    .contact .social-media--twitter a {
-      background-image: url("/images/contact__social-media--twitter.png"); }
-    .contact .social-media--instagram a {
-      background-image: url("/images/contact__social-media--instagram.png"); }
-    .contact .social-media--medium a {
-      background-image: url("/images/contact__social-media--medium.png"); }
-    .contact .social-media--behance a {
-      background-image: url("/images/contact__social-media--behance.png"); }
-    .contact .social-media--dribbble a {
-      background-image: url("/images/contact__social-media--dribbble.png"); }
   .contact .form__input {
     border: 0;
     border-bottom: 2px solid #e3e3e3;
@@ -7723,11 +7841,15 @@ body {
     width: 156px;
     height: 38px;
     border-radius: 16px;
+    border-width: 0;
     background-color: #8e5edd;
     text-transform: uppercase;
     color: white;
     font-size: 18px;
-    font-weight: normal; }
+    font-weight: normal;
+    transition: background-color .6s; }
+    .contact .form__button:hover, .contact .form__button:focus {
+      background-color: #7034d4; }
 
 .screenshots__gallery {
   width: 878px; }

@@ -392,7 +392,6 @@ $(document).ready(function () {
   }
 
   $('.btn-nav-toggler').click(function () {
-
     $('.main-menu').toggleClass('is-active');
   });
 });

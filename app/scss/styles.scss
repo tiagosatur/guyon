@@ -216,7 +216,7 @@ body {
     }
 
     .main-menu {
-      background: rgba(white, .8);
+      background: rgba(white, .9);
       border-radius: 3px;
       display: flex;
       flex-flow: column;
@@ -233,6 +233,8 @@ body {
 
       @media #{$desktop} {
         background: transparent;
+        flex-flow: row;
+        overflow: visible;
         position: static;
         width: auto;
       }
@@ -240,14 +242,17 @@ body {
       &.is-active {
         height: 300px;
         opacity: 1;
+        
+        @media #{$desktop} {
+          height: auto;
+        }
       }
 
       .main-menu__item{
         display: inline;
 
         a {
-          width: 76px;
-          height: 30px;
+          display: block;
           font-size: 14px;
           line-height: 30px;
           font-weight: bold;
@@ -257,11 +262,11 @@ body {
           padding: 8px 10px;
           border: 2px solid transparent;
           border-radius: 30px;
+          text-align: center;
           text-transform: uppercase;
 
           @media #{$desktop} {
             color: white;
-
           }
 
           &:hover{
@@ -1167,7 +1172,7 @@ body {
   }
 
   .post {
-    padding: 0 16px;
+    padding: 0 8px;
     width: 70%;
 
     @media #{$desktop} {
@@ -1398,7 +1403,7 @@ body {
         bottom: 70px;
         top: 50px;
         left: 8%;
-        right: 20%;
+        right: 8%;
       }
 
       @media #{$desktop} {

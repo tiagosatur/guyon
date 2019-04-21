@@ -7031,7 +7031,7 @@ body {
       top: 40px;
       right: 80px; }
     .main-header .main-nav .main-menu {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 3px;
       display: flex;
       flex-flow: column;
@@ -7047,16 +7047,20 @@ body {
       @media screen and (min-width: 1024px) {
         .main-header .main-nav .main-menu {
           background: transparent;
+          flex-flow: row;
+          overflow: visible;
           position: static;
           width: auto; } }
       .main-header .main-nav .main-menu.is-active {
         height: 300px;
         opacity: 1; }
+        @media screen and (min-width: 1024px) {
+          .main-header .main-nav .main-menu.is-active {
+            height: auto; } }
       .main-header .main-nav .main-menu .main-menu__item {
         display: inline; }
         .main-header .main-nav .main-menu .main-menu__item a {
-          width: 76px;
-          height: 30px;
+          display: block;
           font-size: 14px;
           line-height: 30px;
           font-weight: bold;
@@ -7066,6 +7070,7 @@ body {
           padding: 8px 10px;
           border: 2px solid transparent;
           border-radius: 30px;
+          text-align: center;
           text-transform: uppercase; }
           @media screen and (min-width: 1024px) {
             .main-header .main-nav .main-menu .main-menu__item a {
@@ -7583,7 +7588,7 @@ body {
     .blog .posts {
       display: flex; } }
   .blog .post {
-    padding: 0 16px;
+    padding: 0 8px;
     width: 70%; }
     @media screen and (min-width: 1024px) {
       .blog .post {
@@ -7725,7 +7730,7 @@ body {
     padding-bottom: 70px;
     padding-top: 50px;
     padding-left: 8%;
-    padding-right: 20%; }
+    padding-right: 8%; }
     @media screen and (min-width: 1024px) {
       .contact__content--second {
         padding-top: 180px;
